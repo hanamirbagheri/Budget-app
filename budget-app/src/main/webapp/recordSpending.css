@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #f7f6ff;
+  }
+
+  h1 {
+    margin-bottom: 16px;
+  }
+
+  /* Contain everything */
+  .container {
+    margin-top: 100px;
+    padding: 50px;
+  }
+
+  /* The custom box for drop-down */
+  .choice-box {
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+  }
+
+  /* The box to display all options */
+  .choice-box .option-container {
+    background-color: #2f3640;
+    color: white;
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.5s;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    /* Move the option-container down the heading */
+    order: 1;
+  }
+
+  /* The heading of the drop-down */
+  .selected {
+    font-size: 20px;
+    padding: 12px 24px;
+    background-color: #2f3640;
+    color: white;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    order: 0;
+  }
+
+  /* Apply to all option and all selected class */
+  .choice-box .option,
+  .selected {
+    cursor: pointer;
+  }
+
+  .choice-box label {
+    cursor: pointer;
+    display: block;
+    padding: 12px 24px;
+    font-size: 18px;
+  }
+
+  .choice-box .option:hover {
+    background-color: #414b57;
+  }
+
+  .choice-box .option .radio {
+    display: none;
+  }
+
+  .choice-box .option-container.active {
+    max-height: 250px;
+    opacity: 1;
+    /* Make it scrollable in case we need to add budget-type */
+    overflow-y: scroll;
+  }
+
+  .budget-amount {
+    margin-top: 30px;
+  }
+
+  .budget-amount p,
+  textarea,
+  input {
+    margin: 10px 0;
+    font-size: 18px;
+  }
