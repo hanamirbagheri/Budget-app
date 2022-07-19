@@ -18,15 +18,15 @@ import org.jsoup.safety.Safelist;
 public class setBudget extends HttpServlet {
 
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String title = Jsoup.clean(request.getParameter("text-input"), Safelist.none());
+    Float budget = Float.parseFloat(Jsoup.clean(request.getParameter("text-input"), Safelist.none()));
     String type = Jsoup.clean(request.getParameter("budget-type"), Safelist.none());
     long timestamp = System.currentTimeMillis();
 
     Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-    KeyFactory keyFactory = datastore.newKeyFactory().setKind("Test-budget");
+    KeyFactory keyFactory = datastore.newKeyFactory().setKind("Budget");
     FullEntity taskEntity =
         Entity.newBuilder(keyFactory.newKey())
-            .set("title", title)
+            .set("Budget amount", budget)
             .set("Type", type)
             .set("timestamp", timestamp)
             .build();
