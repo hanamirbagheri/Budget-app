@@ -15,6 +15,9 @@
 /**
  * Adds a random greeting to the page.
  */
+
+ import budgettracker from "./budgettracker.js";
+ new budgettracker("#table");
 function addRandomGreeting() {
   const greetings =
       ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];

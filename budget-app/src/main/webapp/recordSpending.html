@@ -1,88 +1,68 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.dropbtn {
-  background-color: #3498DB;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown a:hover {background-color: #ddd;}
-
-.show {display: block;}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-<h1>Record your spending</h1>
-
-<div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Choose your Budget Type</button>
-  <div id="myDropdown" class="dropdown-content">
-    <p>FOOD</p>
-    <a >CLOTHING</a>
-    <a >TRANSPORTATION</a>
-    <a >OTHER</a>
-  </div>
+ <div class="navbar">
+    <a href="#default" class="logo">Budget App</a>
+  <a href="index.html">Profile</a>
+  <a href="setBudget.html">Set Budget</a>
+  <a href="recordSpending.html">Record Spending</a>
+  <a class="active" href="recordIncome.html"> Record Income</a>
 </div>
-
-<form method="POST">
-    <p>How much you spent?</p>
-    <textarea name="text-input"> </textarea>
-    <br/>
-    <input type="submit" />
-  </form>
-
-<script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
+  <div class="container">
+     <h1>Record your spending</h1>
+ 
+     <form method="POST" action="/spending">
+       <div class="choice-box">
+         <div class="option-container">
+           <div class="option">
+             <input type="radio" name="budget-type" id="food" class="radio" />
+             <label for="food">Food</label>
+           </div>
+           <div class="option">
+             <input
+               type="radio"
+               name="budget-type"
+               id="clothing"
+               class="radio"
+             />
+             <label for="clothing">Clothing</label>
+           </div>
+           <div class="option">
+             <input
+               type="radio"
+               name="budget-type"
+               id="transport"
+               class="radio"
+             />
+             <label for="transport">Transportation</label>
+           </div>
+           <div class="option">
+             <input type="radio" name="budget-type" id="other" class="radio" />
+             <label for="other">Other</label>
+           </div>
+         </div>
+ 
+         <div class="selected">Choose your budget type</div>
+       </div>
+ 
+       <div class="budget-amount">
+         <p>How much did you spend?</p>
+         <textarea name="text-input"> </textarea>
+         <br />
+         <input type="submit" />
+       </div>
+     </form>
+   </div>
+   <script src="recordSpending.js"></script>
 
 </body>
+
 </html>

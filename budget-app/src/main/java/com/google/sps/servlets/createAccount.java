@@ -1,3 +1,4 @@
+
 package com.google.sps.servlets;
  
 import com.google.cloud.datastore.Datastore;
@@ -14,20 +15,20 @@ import org.jsoup.Jsoup;
 import org.jsoup.safety.Safelist;
  
 /** Handles requests sent to the /hello URL. Try running a server and navigating to /hello! */
-@WebServlet("/spending")
-public class recordSpending extends HttpServlet {
+@WebServlet("/createAccount")
+public class createAccount extends HttpServlet {
  
  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-   Float spending = Float.parseFloat(Jsoup.clean(request.getParameter("text-input"), Safelist.none()));
-   String type = Jsoup.clean(request.getParameter("budget-type"), Safelist.none());
+   String username = Jsoup.clean(request.getParameter("text-input-username"), Safelist.none());
+   String password = Jsoup.clean(request.getParameter("text-input-password"), Safelist.none());
    long timestamp = System.currentTimeMillis();
  
    Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-   KeyFactory keyFactory = datastore.newKeyFactory().setKind("Spending");
+   KeyFactory keyFactory = datastore.newKeyFactory().setKind("account");
    FullEntity taskEntity =
        Entity.newBuilder(keyFactory.newKey())
-           .set("Spending amount", spending)
-           .set("Type", type)
+           .set("username", username)
+           .set("password", password)
            .set("timestamp", timestamp)
            .build();
    datastore.put(taskEntity);
@@ -36,3 +37,4 @@ public class recordSpending extends HttpServlet {
  }
 }
  
+
