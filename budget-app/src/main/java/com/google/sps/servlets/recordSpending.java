@@ -24,14 +24,14 @@ public class recordSpending extends HttpServlet {
 
     Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
     KeyFactory keyFactory = datastore.newKeyFactory().setKind("Spending");
-    FullEntity taskEntity =
+    FullEntity spendingEntity =
         Entity.newBuilder(keyFactory.newKey())
             .set("Spending amount", spending)
             .set("Type", type)
             .set("timestamp", timestamp)
             .build();
-    datastore.put(taskEntity);
+    datastore.put(spendingEntity);
 
-    response.sendRedirect("https://summer22-sps-44.appspot.com/");
+    response.sendRedirect("recordSpending.html");
   }
 }
