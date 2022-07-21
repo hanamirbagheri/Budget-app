@@ -1,0 +1,32 @@
+<html>
+ 
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link href="style.css" rel="stylesheet" type="text/css" />
+    </head>
+ 
+   <body onload="loadExpenses('/list-income', 'income-list')" class="expense-related">
+       <div class="navbar">
+        <a href="index.html" class="logo">DollarNoMore404</a>
+            <a href="profile.html">Profile</a>
+            <a href="setBudget.html">Set Budget</a>
+            <a href="recordSpending.html">Record Spending</a>
+            <a href="recordIncome.html"> Record Income</a>
+       </div>
+ 
+       <div class="container">
+           <h1>Record your income</h1>
+           <form method="POST" action="/income">
+                <div class="budget-amount">
+                    <textarea name="text-input-income"  placeholder="Enter your income"></textarea>
+                    <br/>
+                    <input type="submit" />
+                </div>
+           </form>
+           <hr>
+           <ul id="income-list"></ul>
+       </div>
+       <script src="income.js"></script>
+   </body>
+</html>
