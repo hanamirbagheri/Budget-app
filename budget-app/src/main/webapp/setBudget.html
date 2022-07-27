@@ -1,9 +1,17 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="recordSpending.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body onload="loadExpenses('/list-budgets', 'budget-list')" class="expense-related">
+    <div class="navbar">
+        <a href="index.html" class="logo">DollarNoMore404</a>
+        <a href="profile.html">Profile</a>
+        <a href="setBudget.html">Set Budget</a>
+        <a href="recordSpending.html">Record Spending</a>
+        <a href="recordIncome.html"> Record Income</a>
+    </div>
+    
     <div class="container">
       <h1>Set your budget</h1>
 
@@ -59,7 +67,9 @@
           <input type="submit" />
         </div>
       </form>
+      <hr>
+    <ul id="budget-list"></ul>
     </div>
-    <script src="recordSpending.js"></script>
+    <script src="budget-spending.js"></script>
   </body>
 </html>
