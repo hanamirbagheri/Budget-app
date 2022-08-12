@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+     
+    <body class="expense-related">
+        <div class="navbar">
+            <a href="index.html" class="logo">DollarNoMore404</a>
+            <a href="profile.html">Profile</a>
+            <a href="setBudget.html">Set Budget</a>
+            <a href="recordSpending.html">Record Spending</a>
+            <a href="recordIncome.html"> Record Income</a>
+        </div>
+
+       <div id ="table" class="container">
+          <table class="budget-tracker">
+              <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Budget</th>
+                    <th>Spent</th>
+                    <th>Income</th>
+                    <th></th>
+                </tr>
+              </thead>
+              <tbody class="entries">
+                  <tr>
+                      <td >
+                          <select class="input input-category" id="select" onchange="displayData()">
+                              <option value="">--Select a type--</option>
+                              <option value="Food">FOOD</option>
+                              <option value="Clothes">CLOTHING</option>
+                              <option value="Transportation">TRANSPORTATION</option>
+                              <option value="Other">OTHER</option>
+                          </select>
+                      </td>
+                      <td >
+                        <input type="text" id="budget-display">
+                    </td>
+                    <td >
+                        <input type="text" id="spending-display">
+                    </td>
+                    <td >
+                        <input type="text" id="income-display">
+                    </td>
+                  </tr>
+              </tbody>
+          </table>
+       </div>
+       <script src="script.js"></script>
+    </body>
+</html>
+
